@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Easy - Inline Form Validation - Tests</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>#test-results { margin-top: 24px; border-top: 2px solid #ddd; padding-top: 16px; }</style>
+</head>
+<body>
+
+<form id="profile-form">
+  <div class="field">
+    <input id="name-input" placeholder="Name" />
+    <small id="name-error" class="error"></small>
+  </div>
+  <div class="field">
+    <input id="email-input" placeholder="Email" />
+    <small id="email-error" class="error"></small>
+  </div>
+  <button id="submit-btn" type="button">Submit</button>
+  <p id="success-message"></p>
+</form>
+
+  <div id="test-results"></div>
+  <script src="script.js"></script>
+  <script src="../../test-utils.js"></script>
+  <script src="test.js"></script>
+</body>
+</html>

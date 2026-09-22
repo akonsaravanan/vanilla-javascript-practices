@@ -1,0 +1,4 @@
+body { font-family: Arial; max-width: 500px; margin: 40px auto; }
+.card { display: grid; gap: 12px; }
+textarea { width: 100%; padding: 10px; }
+#counter { font-weight: 700; }

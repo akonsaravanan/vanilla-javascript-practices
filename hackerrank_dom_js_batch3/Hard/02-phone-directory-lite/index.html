@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hard - Phone Directory Lite</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="form-row">
+  <input id="name-input" placeholder="Name" />
+  <input id="phone-input" placeholder="Phone" />
+  <button id="add-btn" type="button">Add</button>
+</div>
+<div class="errors">
+  <small id="name-error" class="error"></small>
+  <small id="phone-error" class="error"></small>
+</div>
+<div class="toolbar">
+  <input id="search-input" placeholder="Search" />
+  <button id="sort-btn" type="button">Sort Name</button>
+</div>
+<table>
+  <thead><tr><th>Name</th><th>Phone</th></tr></thead>
+  <tbody id="directory-body"></tbody>
+</table>
+
+  <script src="script.js"></script>
+</body>
+</html>

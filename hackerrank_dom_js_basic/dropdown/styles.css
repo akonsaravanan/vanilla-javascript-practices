@@ -1,0 +1,4 @@
+body { font-family: Arial; max-width: 600px; margin: 40px auto; }
+#dropdown-menu { display: none; list-style: none; padding: 8px; border: 1px solid #ccc; width: 160px; }
+#dropdown-menu.open { display: block; }
+#dropdown-menu li { padding: 8px; }

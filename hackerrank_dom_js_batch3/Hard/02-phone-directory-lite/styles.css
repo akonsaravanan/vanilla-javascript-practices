@@ -1,0 +1,5 @@
+body { font-family: Arial; max-width: 800px; margin: 40px auto; }
+.form-row, .toolbar { display: flex; gap: 8px; margin-bottom: 8px; }
+.error { color: #dc2626; display: inline-block; min-width: 180px; }
+table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+th, td { border: 1px solid #ccc; padding: 8px; }

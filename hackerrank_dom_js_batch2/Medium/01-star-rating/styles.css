@@ -1,0 +1,3 @@
+body { font-family: Arial; max-width: 500px; margin: 40px auto; }
+.star { font-size: 28px; border: none; background: transparent; color: #9ca3af; cursor: pointer; }
+.star.active { color: #f59e0b; }

@@ -1,0 +1,28 @@
+body {
+  font-family: Arial;
+  max-width: 720px;
+  margin: 32px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.accordion-group {
+  border: 1px solid #d1d5db;
+  padding: 12px;
+}
+.accordian {
+  border: 1px solid #e5e7eb;
+  margin-top: 8px;
+}
+.title-section {
+  padding: 10px;
+  cursor: pointer;
+  background: #f9fafb;
+}
+.description {
+  display: none;
+  padding: 10px;
+}
+.accordian.active .description {
+  display: block;
+}

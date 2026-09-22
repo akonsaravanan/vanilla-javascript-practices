@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hard - Nested Accordion Groups - Tests</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    #test-results { margin-top: 32px; border-top: 2px solid #ddd; padding-top: 20px; }
+  </style>
+</head>
+<body>
+
+<div class="accordion-group" id="group-a">
+  <h3>Group A</h3>
+  <div class="accordian"><div class="title-section">A1</div><div class="description">A1 Content</div></div>
+  <div class="accordian"><div class="title-section">A2</div><div class="description">A2 Content</div></div>
+  <div class="accordian"><div class="title-section">A3</div><div class="description">A3 Content</div></div>
+</div>
+<div class="accordion-group" id="group-b">
+  <h3>Group B</h3>
+  <div class="accordian"><div class="title-section">B1</div><div class="description">B1 Content</div></div>
+  <div class="accordian"><div class="title-section">B2</div><div class="description">B2 Content</div></div>
+  <div class="accordian"><div class="title-section">B3</div><div class="description">B3 Content</div></div>
+</div>
+
+  <div id="test-results"></div>
+  <script src="script.js"></script>
+  <script src="../../test-utils.js"></script>
+  <script src="test.js"></script>
+</body>
+</html>

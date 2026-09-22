@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Easy - Accordion Single Open - Tests</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    #test-results { margin-top: 32px; border-top: 2px solid #ddd; padding-top: 20px; }
+  </style>
+</head>
+<body>
+
+<div class="accordian">
+  <div class="title-section">
+    <div class="title">Section 1</div>
+    <div class="expand-icon">+</div>
+    <div class="collapse-icon">-</div>
+  </div>
+  <div class="description"><div class="content">Content 1</div></div>
+</div>
+<div class="accordian">
+  <div class="title-section">
+    <div class="title">Section 2</div>
+    <div class="expand-icon">+</div>
+    <div class="collapse-icon">-</div>
+  </div>
+  <div class="description"><div class="content">Content 2</div></div>
+</div>
+<div class="accordian">
+  <div class="title-section">
+    <div class="title">Section 3</div>
+    <div class="expand-icon">+</div>
+    <div class="collapse-icon">-</div>
+  </div>
+  <div class="description"><div class="content">Content 3</div></div>
+</div>
+
+  <div id="test-results"></div>
+  <script src="script.js"></script>
+  <script src="../../test-utils.js"></script>
+  <script src="test.js"></script>
+</body>
+</html>

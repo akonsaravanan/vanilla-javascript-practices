@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phone Directory</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Phone Directory</h1>
+
+    <section class="card form-card">
+      <div class="field">
+        <label for="name-input">Name</label>
+        <input id="name-input" data-testid="name-input" type="text" placeholder="Enter name" />
+        <small id="name-error" data-testid="name-error" class="error"></small>
+      </div>
+
+      <div class="field">
+        <label for="email-input">Email</label>
+        <input id="email-input" data-testid="email-input" type="text" placeholder="Enter email" />
+        <small id="email-error" data-testid="email-error" class="error"></small>
+      </div>
+
+      <div class="field">
+        <label for="phone-input">Phone Number</label>
+        <input id="phone-input" data-testid="phone-input" type="text" placeholder="Enter 10 digit phone number" />
+        <small id="phone-error" data-testid="phone-error" class="error"></small>
+      </div>
+
+      <button id="submit-btn" data-testid="submit-btn" type="button">Submit</button>
+    </section>
+
+    <section class="card table-card">
+      <div class="toolbar">
+        <input id="search-input" data-testid="search-input" type="text" placeholder="Search by name, email, or phone" />
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>
+              <button id="sort-name-btn" data-testid="sort-name-btn" type="button" class="sort-btn">Name</button>
+            </th>
+            <th>Email</th>
+            <th>Phone Number</th>
+          </tr>
+        </thead>
+        <tbody id="directory-body" data-testid="directory-body"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>

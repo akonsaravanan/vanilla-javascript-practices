@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medium - Sortable Table - Tests</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>#test-results { margin-top: 24px; border-top: 2px solid #ddd; padding-top: 16px; }</style>
+</head>
+<body>
+
+<table>
+  <thead>
+    <tr><th><button id="sort-name-btn" type="button">Name</button></th><th>Role</th></tr>
+  </thead>
+  <tbody id="employee-body">
+    <tr><td>Vimalraj</td><td>Manager</td></tr>
+    <tr><td>Saravanan</td><td>Developer</td></tr>
+    <tr><td>Kannan</td><td>Lead</td></tr>
+  </tbody>
+</table>
+
+  <div id="test-results"></div>
+  <script src="script.js"></script>
+  <script src="../../test-utils.js"></script>
+  <script src="test.js"></script>
+</body>
+</html>

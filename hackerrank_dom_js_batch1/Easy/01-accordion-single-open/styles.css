@@ -1,0 +1,8 @@
+body { font-family: Arial, sans-serif; max-width: 640px; margin: 32px auto; }
+.accordian { border: 1px solid #d1d5db; margin-bottom: 10px; }
+.title-section { display: flex; justify-content: space-between; align-items: center; padding: 12px; cursor: pointer; background: #f9fafb; }
+.description { display: none; padding: 12px; border-top: 1px solid #e5e7eb; }
+.collapse-icon { display: none; }
+.accordian.active .description { display: block; }
+.accordian.active .expand-icon { display: none; }
+.accordian.active .collapse-icon { display: block; }

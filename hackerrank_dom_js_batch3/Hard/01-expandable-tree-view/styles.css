@@ -1,0 +1,4 @@
+body { font-family: Arial; max-width: 500px; margin: 40px auto; }
+.children { display: none; margin-left: 20px; }
+.node.open > .children { display: block; }
+.label { cursor: pointer; margin: 4px 0; }

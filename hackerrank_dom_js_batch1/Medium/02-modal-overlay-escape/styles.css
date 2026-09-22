@@ -1,0 +1,4 @@
+body { font-family: Arial; max-width: 640px; margin: 32px auto; }
+#modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45); }
+#modal-overlay.open { display: flex; align-items: center; justify-content: center; }
+#modal { background: white; min-width: 280px; padding: 20px; }

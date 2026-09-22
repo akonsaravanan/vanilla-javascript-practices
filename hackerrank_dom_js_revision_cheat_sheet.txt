@@ -1,0 +1,383 @@
+HACKERRANK DOM JS REVISION CHEAT SHEET
+=====================================
+
+1) DOM Selection Basics
+-----------------------
+Single element:
+  const btn = document.querySelector('.btn');
+  const input = document.getElementById('name');
+
+Multiple elements:
+  const items = document.querySelectorAll('.item');
+
+Note:
+- querySelectorAll() gives a static NodeList
+- dynamically added elements are not automatically included in old selections
+
+
+2) Event Listener Basics
+------------------------
+  element.addEventListener('click', () => {
+    // logic
+  });
+
+Shortcut:
+  element.onclick = () => {};
+
+Use addEventListener more often in interviews/practice.
+
+
+3) e.target vs e.currentTarget
+------------------------------
+e.target:
+- actual element clicked
+
+e.currentTarget:
+- element where listener is attached
+
+Example:
+  parent.addEventListener('click', (e) => {
+    console.log(e.target);        // actual clicked child
+    console.log(e.currentTarget); // parent
+  });
+
+
+4) Most Important DOM Pattern
+-----------------------------
+Single active item pattern
+Used in:
+- accordion
+- tabs
+- select-one
+
+  items.forEach((item) => item.classList.remove('active'));
+  clicked.classList.add('active');
+
+
+5) Toggle Pattern
+-----------------
+Used in:
+- FAQ
+- done state
+- dropdown
+
+  element.classList.toggle('open');
+
+With condition:
+  element.classList.toggle('hidden', shouldHide);
+
+Equivalent to:
+  if (shouldHide) {
+    element.classList.add('hidden');
+  } else {
+    element.classList.remove('hidden');
+  }
+
+
+6) Show / Hide Approaches
+-------------------------
+Using class:
+  element.classList.add('hidden');
+  element.classList.remove('hidden');
+
+Using inline style:
+  element.style.display = 'none';
+  element.style.display = 'block';
+
+Use class-based approach when possible. It is usually cleaner and more test-friendly.
+
+
+7) Parent Traversal Helpers
+---------------------------
+Parent element:
+  e.target.parentElement
+
+Closest matching parent:
+  e.target.closest('.accordion')
+
+Check if click is inside element:
+  dropdown.contains(e.target)
+
+Used for:
+- outside click handling
+- dropdown close
+- modal close
+
+
+8) Event Delegation
+-------------------
+Use this for dynamic elements added later.
+
+Pattern:
+  parent.addEventListener('click', (e) => {
+    if (e.target.classList.contains('delete-btn')) {
+      e.target.parentElement.remove();
+    }
+  });
+
+When to use:
+- todo list
+- dynamic buttons
+- table rows added later
+- delete/edit actions
+
+Rule:
+If elements don’t exist initially:
+- either attach listener while creating them
+- or use event delegation
+
+
+9) Dynamic DOM Creation
+-----------------------
+Create element manually:
+  const li = document.createElement('li');
+  li.textContent = 'Task';
+  list.appendChild(li);
+
+Create nested structure:
+  const li = document.createElement('li');
+  li.className = 'todo-item';
+
+  const span = document.createElement('span');
+  span.className = 'todo-text';
+  span.textContent = value;
+
+  const btn = document.createElement('button');
+  btn.className = 'delete-btn';
+  btn.textContent = 'Delete';
+
+  li.append(span, btn);
+  list.appendChild(li);
+
+String markup option:
+  list.insertAdjacentHTML('beforeend', `
+    <li class="todo-item">
+      <span class="todo-text">${value}</span>
+      <button class="delete-btn">Delete</button>
+    </li>
+  `);
+
+
+10) append, appendChild, insertAdjacentHTML
+-------------------------------------------
+If you already created DOM node:
+  parent.appendChild(row);
+  parent.append(row);
+
+If you have HTML string:
+  parent.insertAdjacentHTML('beforeend', htmlString);
+
+'beforeend' belongs to insertAdjacentHTML, not to append().
+
+
+11) Search / Filter Pattern
+---------------------------
+  const value = input.value.toLowerCase();
+
+  items.forEach((item) => {
+    const text = item.textContent.toLowerCase();
+
+    if (text.includes(value)) {
+      item.classList.remove('hidden');
+    } else {
+      item.classList.add('hidden');
+    }
+  });
+
+Rule:
+- match -> show
+- not match -> hide
+
+
+12) Debounce Pattern
+--------------------
+This is the actual debounce structure:
+
+  let timer;
+
+  input.addEventListener('input', () => {
+    clearTimeout(timer);
+
+    timer = setTimeout(() => {
+      // delayed logic
+    }, 300);
+  });
+
+Meaning:
+- cancel old timer on every typing
+- wait 300ms after user stops typing
+- then run logic
+
+Common use cases:
+- search
+- autocomplete
+- API calls
+- validation
+
+
+13) Select All Sync Pattern
+---------------------------
+Parent -> children:
+  selectAll.addEventListener('change', () => {
+    items.forEach((item) => {
+      item.checked = selectAll.checked;
+    });
+  });
+
+Children -> parent:
+  function updateSelectAll() {
+    selectAll.checked = [...items].every((item) => item.checked);
+  }
+
+Count selected:
+  function updateCount() {
+    selectedCount.textContent = [...items].filter((item) => item.checked).length;
+  }
+
+
+14) Accordion Patterns
+----------------------
+One always open:
+  accordions.forEach((item) => item.classList.remove('active'));
+  clicked.classList.add('active');
+
+Toggle open/close:
+  clicked.classList.toggle('active');
+
+Group-scoped accordion:
+  const accordions = group.querySelectorAll('.accordian');
+
+  accordions.forEach((item) => item.classList.remove('active'));
+  clicked.classList.add('active');
+
+Only affect accordions inside same group.
+
+
+15) Tabs Pattern
+----------------
+  tabs.forEach((tab) => tab.classList.remove('active'));
+  contents.forEach((content) => content.classList.remove('visible'));
+
+  clickedTab.classList.add('active');
+  contents[index].classList.add('visible');
+
+
+16) Modal / Outside Click Pattern
+---------------------------------
+Open / close:
+  openBtn.onclick = () => overlay.classList.add('open');
+  closeBtn.onclick = () => overlay.classList.remove('open');
+
+Close on outside click:
+  overlay.onclick = (e) => {
+    if (e.target === overlay) {
+      overlay.classList.remove('open');
+    }
+  };
+
+Close on Escape:
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      overlay.classList.remove('open');
+    }
+  });
+
+
+17) Todo Pattern
+----------------
+Add item:
+- validate input
+- create element
+- append to list
+- clear input
+
+Event delegation for actions:
+  list.onclick = (e) => {
+    if (e.target.classList.contains('todo-text')) {
+      e.target.classList.toggle('done');
+    } else if (e.target.classList.contains('delete-btn')) {
+      e.target.parentElement.remove();
+    }
+  };
+
+
+18) Validation Pattern
+----------------------
+Typical flow:
+  if (!value.trim()) {
+    return;
+  }
+
+Regex examples:
+  /^[^\s@]+@[^\s@]+\.[^\s@]+$/   // email
+  /^\d{10}$/                        // 10 digit phone
+
+Inline errors:
+  errorEl.textContent = 'Invalid email';
+
+
+19) Single Source of Truth Pattern
+----------------------------------
+For bigger tasks like phone directory:
+  let contacts = [];
+
+Then:
+- add -> update array
+- search -> filter array
+- sort -> sort array
+- render -> update table from array
+
+Important:
+Vanilla JS does not auto-re-render.
+You must call:
+  renderTable(data);
+
+This is basically manual React rendering.
+
+
+20) React Mental Model -> Vanilla JS
+------------------------------------
+React:
+- state changes
+- component re-renders automatically
+
+Vanilla JS:
+- data changes
+- you manually call render/update function
+
+Mapping:
+- contacts array = state
+- filtered/sorted result = derived state
+- renderTable(...) = manual render
+
+
+21) Common Hidden-Test Pitfalls
+-------------------------------
+Be careful about:
+- wrong selector spelling (accordion vs accordian)
+- using innerText when you need innerHTML
+- trying to bind to dynamic elements too early
+- forgetting default state
+- not clearing previous state before applying new one
+- mutating DOM but forgetting source array
+- using querySelectorAll on elements that don’t exist yet
+- not handling empty input / whitespace
+- not resetting errors / fields after valid submission
+
+
+22) My Short DOM Rules for You
+------------------------------
+If fixed elements already exist:
+- use direct event listeners
+
+If elements are added later:
+- use event delegation or attach listener while creating
+
+If one item must stay active:
+- remove from all, add to clicked
+
+If search/filter:
+- match -> show, no match -> hide
+
+If bigger task:
+- keep one array as source of truth, render from it

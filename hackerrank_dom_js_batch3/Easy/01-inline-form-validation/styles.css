@@ -1,0 +1,5 @@
+body { font-family: Arial; max-width: 500px; margin: 40px auto; }
+.field { display: grid; gap: 6px; margin-bottom: 12px; }
+input { padding: 10px; }
+.error { color: #dc2626; min-height: 18px; }
+#success-message { color: #15803d; }

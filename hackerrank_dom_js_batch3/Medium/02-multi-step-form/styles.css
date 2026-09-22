@@ -1,0 +1,3 @@
+body { font-family: Arial; max-width: 500px; margin: 40px auto; }
+.step { display: none; border: 1px solid #ccc; padding: 16px; }
+.step.visible { display: block; }

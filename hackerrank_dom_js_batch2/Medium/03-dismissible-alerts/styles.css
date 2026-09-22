@@ -1,0 +1,2 @@
+body { font-family: Arial; max-width: 600px; margin: 40px auto; }
+.alert { display: flex; justify-content: space-between; border: 1px solid #ccc; padding: 10px; margin-bottom: 8px; }

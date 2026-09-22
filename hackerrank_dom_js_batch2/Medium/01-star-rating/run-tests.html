@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medium - Star Rating - Tests</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>#test-results { margin-top: 24px; border-top: 2px solid #ddd; padding-top: 16px; }</style>
+</head>
+<body>
+
+<div class="rating">
+  <div id="stars">
+    <button class="star" data-value="1">★</button>
+    <button class="star" data-value="2">★</button>
+    <button class="star" data-value="3">★</button>
+    <button class="star" data-value="4">★</button>
+    <button class="star" data-value="5">★</button>
+  </div>
+  <p>Rating: <span id="rating-value">0</span></p>
+</div>
+
+  <div id="test-results"></div>
+  <script src="script.js"></script>
+  <script src="../../test-utils.js"></script>
+  <script src="test.js"></script>
+</body>
+</html>

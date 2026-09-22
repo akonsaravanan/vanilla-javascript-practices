@@ -1,0 +1,6 @@
+body { font-family: Arial; max-width: 640px; margin: 32px auto; }
+.tabs { display: flex; gap: 8px; margin-bottom: 16px; }
+.tab { padding: 8px 12px; cursor: pointer; }
+.tab.active { background: #2563eb; color: #fff; }
+.content { display: none; padding: 12px; border: 1px solid #d1d5db; }
+.content.visible { display: block; }
